@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome 2026 ❤️🎆</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    height:100vh;
+    background: linear-gradient(270deg,#ff512f,#dd2476,#1e90ff,#7f00ff);
+    background-size:600% 600%;
+    animation:bg 8s infinite alternate;
+    font-family:Segoe UI,sans-serif;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+    z-index:10;
+    width:85%;
+    max-width:600px;
+}
+
+.center h1{
+    font-size:3.2rem;
+    text-shadow:0 0 30px white;
+    margin-bottom:10px;
+}
+
+.center .msg{
+    font-size:1.1rem;
+    line-height:1.6;
+    background:rgba(255,255,255,0.12);
+    padding:18px;
+    border-radius:18px;
+    box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
+
+/* BIG ROCKET */
+.rocket{
+    position:absolute;
+    bottom:-40px;
+    width:8px;
+    height:60px;
+    background:linear-gradient(white,orange,red);
+    border-radius:4px;
+    animation:launch 2.5s ease-out forwards;
+    box-shadow:0 0 20px orange;
+}
+
+@keyframes launch{
+    to{transform:translateY(-85vh)}
+}
+
+/* BIG EXPLOSION */
+.spark{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    animation:explode 2s ease-out forwards;
+}
+
+@keyframes explode{
+    to{
+        transform:translate(var(--x),var(--y));
+        opacity:0;
+    }
+}
+
+/* HEART SPRINKLE */
+.heart{
+    position:absolute;
+    color:pink;
+    animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+    from{transform:translateY(-10vh);opacity:1}
+    to{transform:translateY(110vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="center">
+    <h1>🎉 Welcome 2026 🎉</h1>
+
+    <div class="msg">
+        <p><b>Feelings ❤️</b><br>
+        “You mean everything to me.  
+        I can’t imagine my life without you.”</p>
+
+        <p><b>Promises 💍</b><br>
+        I promise to stand by you always,  
+        never leave you, and marry you after our studies.  
+        I’ll handle your family like my own  
+        and my family like yours 💞</p>
+
+        <p><b>Wishes ✨</b><br>
+        May 2026 bring us closer,  
+        fill our lives with trust, respect,  
+        endless love and a future  
+        we dream of together 💖</p>
+    </div>
+</div>
+
+<script>
+// BIG FIRECRACKERS
+setInterval(()=>{
+    let r=document.createElement("div");
+    r.className="rocket";
+    r.style.left=Math.random()*90+"vw";
+    document.body.appendChild(r);
+
+    setTimeout(()=>{
+        for(let i=0;i<70;i++){
+            let s=document.createElement("div");
+            s.className="spark";
+            s.style.left=r.offsetLeft+"px";
+            s.style.bottom="85vh";
+            s.style.background=`hsl(${Math.random()*360},100%,60%)`;
+            s.style.setProperty("--x",(Math.random()*500-250)+"px");
+            s.style.setProperty("--y",(Math.random()*500-250)+"px");
+            document.body.appendChild(s);
+            setTimeout(()=>s.remove(),2000);
+        }
+        r.remove();
+    },2300);
+},1200);
+
+// HEART SPRINKLE
+setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(20+Math.random()*25)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},350);
+</script>
+
+</body>
+</html>
